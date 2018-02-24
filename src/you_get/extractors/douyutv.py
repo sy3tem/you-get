@@ -19,7 +19,7 @@ def douyutv_video_download(url, output_dir='.', merge=True, info_only=False, **k
         log.wtf('Unknown url pattern')
     vid = hit.group(1)
 
-    page = get_content(url)
+    page = get_content(url, headers={'referer': url, 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36'})
     hit = re.search(title_patt, page)
     if hit is None:
         title = vid
